@@ -13,7 +13,7 @@ html, body {
   color: white;
 }
 
-/* gradient som tar över hero vid scroll */
+/* gradient över hero vid scroll */
 .hero::after {
   content: "";
   position: absolute;
@@ -77,8 +77,8 @@ html, body {
 /* ===== GALLERI ===== */
 .gallery-section {
   position: relative;
-  padding: 30px 20px 80px; /* mindre mellanrum ovanför bilderna */
-  background: linear-gradient(to bottom, #555555, #80a0d2); /* mörkgrå → blå */
+  padding: 30px 20px 80px; /* lite mindre mellanrum ovanför bilderna */
+  background: transparent; /* smälter ihop med hero */
   text-align: center;
   overflow: visible;
 }
@@ -111,7 +111,7 @@ html, body {
 .photo {
   width: 260px;
   height: 200px; /* fast höjd */
-  background: white; /* tillbaka till vit */
+  background: white; /* vit box som du ville */
   border-radius: 4px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
   overflow: hidden;
