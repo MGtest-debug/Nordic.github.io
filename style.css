@@ -1,29 +1,28 @@
-/* Bakgrund och centrering */
+/* Blå bakgrund och centrering */
 body {
   background: #1a4381;
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
-/* Container för att centrera allt innehåll */
+/* Container som centrerar allt */
 .container {
   width: 80%;
-  max-width: 900px;
-  margin-top: 40px;
+  max-width: 800px;
+  margin-top: 50px;
   text-align: center;
 }
 
 /* Rubrikruta */
 .title-box {
-  background: #d9d9d9; /* ljusgrå */
+  background: #d9d9d9; /* grå */
   border: 4px solid #d4af37; /* guld */
-  padding: 20px;
-  margin-bottom: 30px;
+  padding: 20px 40px;
   display: inline-block;
 
   /* Avklippta hörn */
