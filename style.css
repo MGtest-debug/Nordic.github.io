@@ -13,7 +13,7 @@ html, body {
   color: white;
 }
 
-/* GRADIENT SOM TAR ÖVER */
+/* gradient över hero vid scroll */
 .hero::after {
   content: "";
   position: absolute;
@@ -74,35 +74,90 @@ html, body {
   border-radius: 8px;
 }
 
+/* ===== SOCIALA KNAPPAR ===== */
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s, filter 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Färg för varje knapp */
+.social-button.discord { background-color: #5865F2; }
+.social-button.youtube { background-color: #FF0000; }
+.social-button.tiktok  { background-color: #69C9D0; }
+
+/* Hover-effekt */
+.social-button:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
 /* ===== GALLERI ===== */
 .gallery-section {
   position: relative;
-  top: -60px; /* flyttar hela galleriet uppåt så det överlappar hero mjukt */
-  padding: 0 20px 80px; /* mindre mellanrum ovanför bilderna */
-  background: transparent;
+  padding: 30px 20px 80px;
+  background: transparent; /* smälter ihop med hero */
   text-align: center;
+  overflow: visible;
 }
 
+/* inverterad gradient ovanför galleriet */
+.gallery-section::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to top, rgba(80,80,80,1), rgba(80,100,130,0));
+  z-index: 1;
+}
+
+/* KYLSKÅP */
 .fridge {
+  position: relative;
+  z-index: 2;
   max-width: 1400px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 70px; /* större mellanrum mellan bilderna */
+  gap: 70px;
 }
 
-/* BILDER */
+/* FOTO-BOX */
 .photo {
   width: 260px;
-  padding: 12px;
-  background: white;
+  height: 200px;
+  background: white; /* vit box */
+  padding: 8px; /* sticker ut runt bilden */
+  border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  border-radius: 4px;
+  overflow: hidden;
   transition: transform 0.3s;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  margin-top: 0; /* ingen margin-top längre → inga linjer/skarpa övergångar */
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
 }
 
 .photo:hover {
