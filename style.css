@@ -1,11 +1,9 @@
-/* Bakgrund för hela sidan */
 body {
   background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   font-family: Arial, sans-serif;
 
-  /* Centrera innehåll */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,37 +12,53 @@ body {
   color: #ffffff;
 }
 
-/* Wrapper */
 .center-wrapper {
   text-align: center;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 10px;
 }
 
-/* Rubrikruta */
+/* === SNYGG TITELRUTA === */
 .title-box {
-  background: rgba(217, 217, 217, 0.9);
-  border: 4px solid #d4af37;
+  position: relative;
   padding: 30px 60px;
+  background: rgba(217, 217, 217, 0.92);
   display: inline-block;
+  z-index: 1;
 
   clip-path: polygon(
-    10% 0%, 90% 0%,
-    100% 10%, 100% 90%,
-    90% 100%, 10% 100%,
-    0% 90%, 0% 10%
+    12% 0%, 88% 0%,
+    100% 12%, 100% 88%,
+    88% 100%, 12% 100%,
+    0% 88%, 0% 12%
+  );
+}
+
+/* RAM SOM FÖLJER FORMEN */
+.title-box::before {
+  content: "";
+  position: absolute;
+  inset: -4px; /* ramens tjocklek */
+  background: #d4af37;
+  z-index: -1;
+
+  clip-path: polygon(
+    12% 0%, 88% 0%,
+    100% 12%, 100% 88%,
+    88% 100%, 12% 100%,
+    0% 88%, 0% 12%
   );
 }
 
 .title-box h1 {
   margin: 0;
   color: #1a4381;
+  letter-spacing: 1px;
 }
 
-/* Text under rutan */
+/* Text under */
 .intro-text {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 1.1rem;
-  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 12px 18px;
+  border-radius: 8px;
 }
