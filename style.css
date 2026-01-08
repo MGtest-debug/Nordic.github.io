@@ -93,12 +93,10 @@ html, body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Färg för varje knapp */
 .social-button.discord { background-color: #5865F2; }
 .social-button.youtube { background-color: #FF0000; }
 .social-button.tiktok  { background-color: #69C9D0; }
 
-/* Hover-effekt */
 .social-button:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
@@ -108,7 +106,7 @@ html, body {
 .gallery-section {
   position: relative;
   padding: 30px 20px 80px;
-  background: transparent; /* smälter ihop med hero */
+  background: transparent;
   text-align: center;
   overflow: visible;
 }
@@ -141,15 +139,16 @@ html, body {
 .photo {
   width: 260px;
   height: 200px;
-  background: white; /* vit box */
-  padding: 8px; /* sticker ut runt bilden */
+  background: white;
+  padding: 8px;
   border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
   overflow: hidden;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .photo img {
@@ -160,8 +159,11 @@ html, body {
   border-radius: 4px;
 }
 
+/* POP-EFFEKT VID HOVER */
 .photo:hover {
-  transform: scale(1.05);
+  transform: scale(1.15) rotate(0deg); /* poppar ut och nollställer rotation */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  z-index: 10; /* hovrade bilder ovanpå andra */
 }
 
 /* ROTATION AUTOMATISK */
