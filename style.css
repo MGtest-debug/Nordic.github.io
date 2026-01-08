@@ -1,29 +1,49 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Bakgrundsbild */
 body {
   background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
-  margin: 0;
-  font-family: Arial, sans-serif;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  min-height: 100vh;
   color: #ffffff;
 }
 
-.center-wrapper {
-  text-align: center;
+/* GRADIENT OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  /* Blågrå gradient */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(40, 60, 90, 0.5) 60%,
+    rgba(70, 90, 120, 0.95) 100%
+  );
+
+  z-index: -1;
 }
 
-/* === SNYGG TITELRUTA === */
+/* Innehåll */
+.center-wrapper {
+  min-height: 200vh; /* gör sidan scrollbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40vh;
+}
+
+/* Titelruta */
 .title-box {
   position: relative;
   padding: 30px 60px;
   background: rgba(217, 217, 217, 0.92);
-  display: inline-block;
-  z-index: 1;
-
   clip-path: polygon(
     12% 0%, 88% 0%,
     100% 12%, 100% 88%,
@@ -32,33 +52,24 @@ body {
   );
 }
 
-/* RAM SOM FÖLJER FORMEN */
 .title-box::before {
   content: "";
   position: absolute;
-  inset: -4px; /* ramens tjocklek */
+  inset: -4px;
   background: #d4af37;
   z-index: -1;
-
-  clip-path: polygon(
-    12% 0%, 88% 0%,
-    100% 12%, 100% 88%,
-    88% 100%, 12% 100%,
-    0% 88%, 0% 12%
-  );
+  clip-path: inherit;
 }
 
 .title-box h1 {
   margin: 0;
   color: #1a4381;
-  letter-spacing: 1px;
 }
 
-/* Text under */
+/* Text */
 .intro-text {
   margin-top: 25px;
-  font-size: 1.1rem;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   padding: 12px 18px;
   border-radius: 8px;
 }
