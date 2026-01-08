@@ -56,7 +56,7 @@ html, body {
   content: "";
   position: absolute;
   inset: -4px;
-  background: #7AD779;
+  background: #2a354b;
   z-index: -1;
   clip-path: inherit;
 }
@@ -106,7 +106,7 @@ html, body {
 .gallery-section {
   position: relative;
   padding: 30px 20px 80px;
-  background: #7AD779;
+  background: #505051;
   text-align: center;
   overflow: visible;
 }
