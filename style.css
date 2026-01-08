@@ -6,7 +6,7 @@ html, body {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 120vh;
+  min-height: 100vh; /* mindre höjd så det inte blir så mycket tomt utrymme */
   background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
@@ -76,8 +76,7 @@ html, body {
 
 /* ===== GALLERI ===== */
 .gallery-section {
-  /* placera sektionen så bilderna börjar under texten */
-  padding: 60px 20px 100px;
+  padding: 60px 20px 80px; /* mindre mellanrum mellan text och bilder */
   background: linear-gradient(
     to bottom,
     rgb(80,100,130),
@@ -97,12 +96,12 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 50px; /* större mellanrum mellan bilderna */
 }
 
 /* BILDER */
 .photo {
-  width: 260px;             /* större bilder */
+  width: 260px;
   padding: 12px;
   background: white;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
@@ -110,8 +109,8 @@ html, body {
   transition: transform 0.3s;
   object-fit: cover;
 
-  /* HALVT SYNLIGA TOPPAR */
-  margin-top: -40px; /* nu mindre än innan så de inte krockar med texten */
+  /* Halvt synliga toppar */
+  margin-top: -30px; /* mindre så bilderna inte täcker texten */
 }
 
 .photo:hover {
