@@ -6,7 +6,7 @@ html, body {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh; /* mindre höjd så det inte blir så mycket tomt utrymme */
+  min-height: 100vh;
   background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
@@ -76,27 +76,18 @@ html, body {
 
 /* ===== GALLERI ===== */
 .gallery-section {
-  padding: 60px 20px 80px; /* mindre mellanrum mellan text och bilder */
-  background: linear-gradient(
-    to bottom,
-    rgb(80,100,130),
-    rgb(180,190,205)
-  );
+  padding: 30px 20px 80px; /* mindre mellanrum mellan text och bilder */
+  background: transparent; /* gör galleriet transparent så det flyter ihop med hero */
   text-align: center;
 }
 
-.gallery-section h2 {
-  margin-bottom: 40px;
-}
-
-/* KYLSKÅP */
 .fridge {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px; /* större mellanrum mellan bilderna */
+  gap: 60px; /* större mellanrum mellan bilderna */
 }
 
 /* BILDER */
@@ -110,7 +101,7 @@ html, body {
   object-fit: cover;
 
   /* Halvt synliga toppar */
-  margin-top: -30px; /* mindre så bilderna inte täcker texten */
+  margin-top: -20px; /* ännu mindre, så bilderna börjar när hero-texten slutar */
 }
 
 .photo:hover {
