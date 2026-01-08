@@ -11,10 +11,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Flytta upp allt lite */
   min-height: 100vh;
-  padding-top: 10vh; /* gör att rutan hamnar lite högre */
+
+  /* Flytta upp rutan 40% */
+  transform: translateY(-40%);
 }
 
 /* Wrapper som centrerar rutan */
@@ -29,7 +29,6 @@ body {
   padding: 30px 60px;
   display: inline-block;
 
-  /* Avklippta hörn */
   clip-path: polygon(
     10% 0%, 90% 0%,
     100% 10%, 100% 90%,
