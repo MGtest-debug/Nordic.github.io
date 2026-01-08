@@ -78,7 +78,7 @@ html, body {
 .gallery-section {
   position: relative;
   padding: 30px 20px 80px; /* mindre mellanrum ovanför bilderna */
-  background: transparent;
+  background: linear-gradient(to bottom, #555555, #80a0d2); /* mörkgrå → blå */
   text-align: center;
   overflow: visible;
 }
@@ -91,7 +91,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(to bottom, rgba(80,100,130,1), rgba(80,100,130,0));
+  background: linear-gradient(to bottom, rgba(80,80,80,1), rgba(80,100,130,0));
   z-index: 1;
 }
 
@@ -107,14 +107,14 @@ html, body {
   gap: 70px; /* mer mellanrum mellan bilderna */
 }
 
-/* BILDER MED GRADIENT */
+/* BILDER */
 .photo {
   width: 260px;
   height: 200px; /* fast höjd */
-  background: linear-gradient(to bottom, #cccccc, #80a0d2); /* grå till blå */
+  background: white; /* tillbaka till vit */
   border-radius: 4px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  overflow: hidden; /* så bilden inte sticker ut */
+  overflow: hidden;
   transition: transform 0.3s;
   display: flex;
   align-items: center;
