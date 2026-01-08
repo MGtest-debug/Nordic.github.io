@@ -13,11 +13,13 @@ html, body {
   color: white;
 }
 
-/* GRADIENT SOM TAR ÖVER NÄR MAN SCROLLAR */
+/* GRADIENT SOM TAR ÖVER VID SCROLL */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
+  z-index: 0;
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0) 0%,
@@ -97,22 +99,20 @@ html, body {
   gap: 30px;
 }
 
-/* BILDER SOM SITTER PÅ KYLSKÅP */
+/* BILDER SOM LIGGER PÅ KYLSKÅP */
 .photo {
   width: 200px;
-  background: white;
   padding: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
   border-radius: 4px;
   transition: transform 0.3s;
+  object-fit: cover;
 }
 
 .photo:hover {
   transform: scale(1.05);
 }
 
-/* SLUMPMÄSSIGA LUTNINGAR */
-.rotate1 { transform: rotate(-4deg); }
-.rotate2 { transform: rotate(3deg); }
-.rotate3 { transform: rotate(-2deg); }
-.rotate4 { transform: rotate(5deg); }
+/* SLUMPVIS LUTNING */
+.rotate1 { transform: rotate(-4deg)
