@@ -1,9 +1,26 @@
-body {
-  background: #f0f0f0;
-  font-family: Arial, sans-serif;
-  padding: 20px;
+/* Layout */
+header, footer {
+  background: #003366;
+  color: white;
+  padding: 15px;
 }
 
-h1 {
-  color: #003366;
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-top: 20px;
+}
+
+/* Snyggare text */
+h1, h2 {
+  font-family: Arial, sans-serif;
 }
