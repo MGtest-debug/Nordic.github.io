@@ -106,7 +106,7 @@ html, body {
 .gallery-section {
   position: relative;
   padding: 30px 20px 80px;
-  background: transparent;
+  background: #d4af37;
   text-align: center;
   overflow: visible;
 }
