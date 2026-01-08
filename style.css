@@ -1,31 +1,60 @@
-/* Blå bakgrund och centrering */
+/* Grundlayout */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #1a4381;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
   font-family: Arial, sans-serif;
+  color: #f5f5f5;
 }
 
-/* Container som centrerar allt och flyttar ner rutan */
-.container {
-  width: 80%;
-  max-width: 800px;
-  margin-top: 120px; /* Flyttar ner rutan */
+/* Wrapper för att centrera innehåll vertikalt och horisontellt */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.site-header {
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-/* Rubrikruta */
+.logo {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Huvudcontainer */
+.container {
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Rubrikruta med avklippta hörn */
 .title-box {
   background: #d9d9d9; /* grå */
   border: 4px solid #d4af37; /* guld */
   padding: 20px 40px;
   display: inline-block;
+  margin-bottom: 20px;
 
-  /* Avklippta hörn */
   clip-path: polygon(
     10% 0%, 90% 0%,
     100% 10%, 100% 90%,
@@ -34,7 +63,42 @@ body {
   );
 }
 
-.title-box h1 {
+.title-box h2 {
   margin: 0;
   color: #1a4381;
+}
+
+/* Brödtext */
+.intro-text {
+  margin: 10px auto 25px;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Knapp */
+.primary-button {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #d4af37;
+  color: #1a4381;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #e0c25a;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  padding: 15px 0 25px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
 }
