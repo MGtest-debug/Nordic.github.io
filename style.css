@@ -76,8 +76,8 @@ html, body {
 
 /* ===== GALLERI ===== */
 .gallery-section {
-  margin-top: -150px; /* startar högre upp, halv synliga översta bilder */
-  padding: 120px 20px 100px;
+  /* placera sektionen så bilderna börjar under texten */
+  padding: 60px 20px 100px;
   background: linear-gradient(
     to bottom,
     rgb(80,100,130),
@@ -87,7 +87,7 @@ html, body {
 }
 
 .gallery-section h2 {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 /* KYLSKÅP */
@@ -97,7 +97,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
 }
 
 /* BILDER */
@@ -109,7 +109,9 @@ html, body {
   border-radius: 4px;
   transition: transform 0.3s;
   object-fit: cover;
-  margin-top: -80px;        /* startar högre upp, halvt synliga */
+
+  /* HALVT SYNLIGA TOPPAR */
+  margin-top: -40px; /* nu mindre än innan så de inte krockar med texten */
 }
 
 .photo:hover {
