@@ -1,26 +1,41 @@
-/* Layout */
-header, footer {
-  background: #003366;
-  color: white;
-  padding: 15px;
-}
-
-nav a {
-  color: white;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-main {
-  margin-top: 20px;
-}
-
-/* Snyggare text */
-h1, h2 {
+/* Bakgrund och centrering */
+body {
+  background: #1a4381;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Container för att centrera allt innehåll */
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Rubrikruta */
+.title-box {
+  background: #d9d9d9; /* ljusgrå */
+  border: 4px solid #d4af37; /* guld */
+  padding: 20px;
+  margin-bottom: 30px;
+  display: inline-block;
+
+  /* Avklippta hörn */
+  clip-path: polygon(
+    10% 0%, 90% 0%,
+    100% 10%, 100% 90%,
+    90% 100%, 10% 100%,
+    0% 90%, 0% 10%
+  );
+}
+
+.title-box h1 {
+  margin: 0;
+  color: #1a4381;
 }
