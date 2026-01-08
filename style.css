@@ -10,11 +10,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Container som centrerar allt */
+/* Container som centrerar allt och flyttar ner rutan */
 .container {
   width: 80%;
   max-width: 800px;
-  margin-top: 50px;
+  margin-top: 120px; /* Flyttar ner rutan */
   text-align: center;
 }
 
