@@ -7,14 +7,15 @@ body {
   font-family: Arial, sans-serif;
   color: #f5f5f5;
 
-  /* Centrera allt vågrätt och lodrätt */
+  /* Centrera vågrätt */
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 
-  /* Flytta upp rutan ännu mer (60%) */
-  transform: translateY(-60%);
+  /* Flytta upp allt 40% */
+  padding-top: 40vh;
+
+  /* Låt sidan vara hög */
+  min-height: 100vh;
 }
 
 /* Wrapper som centrerar rutan */
@@ -24,8 +25,8 @@ body {
 
 /* Rubrikruta */
 .title-box {
-  background: rgba(217, 217, 217, 0.85); /* halvtransparent grå */
-  border: 4px solid #d4af37; /* guld */
+  background: rgba(217, 217, 217, 0.85);
+  border: 4px solid #d4af37;
   padding: 30px 60px;
   display: inline-block;
 
