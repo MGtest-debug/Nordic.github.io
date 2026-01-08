@@ -77,13 +77,13 @@ html, body {
 /* ===== GALLERI ===== */
 .gallery-section {
   position: relative;
-  padding: 30px 20px 80px; /* lite mindre mellanrum ovanför bilderna */
-  background: transparent; /* smälter ihop med hero */
+  padding: 30px 20px 80px;
+  background: transparent; /* ingen egen bakgrund, smälter ihop med hero */
   text-align: center;
   overflow: visible;
 }
 
-/* gradient övergång för mjuk effekt mot hero */
+/* gradient övergång mot hero */
 .gallery-section::before {
   content: "";
   position: absolute;
@@ -104,14 +104,14 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 70px; /* mer mellanrum mellan bilderna */
+  gap: 70px;
 }
 
-/* BILDER */
+/* BILDER MED GRADIENT */
 .photo {
   width: 260px;
   height: 200px; /* fast höjd */
-  background: white; /* vit box som du ville */
+  background: linear-gradient(to bottom, #555555, #80a0d2); /* mörkgrå → blå */
   border-radius: 4px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
   overflow: hidden;
