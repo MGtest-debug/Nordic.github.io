@@ -76,8 +76,10 @@ html, body {
 
 /* ===== GALLERI ===== */
 .gallery-section {
-  padding: 30px 20px 80px; /* mindre mellanrum mellan text och bilder */
-  background: transparent; /* gör galleriet transparent så det flyter ihop med hero */
+  position: relative;
+  top: -60px; /* flyttar hela galleriet uppåt så det överlappar hero mjukt */
+  padding: 0 20px 80px; /* mindre mellanrum ovanför bilderna */
+  background: transparent;
   text-align: center;
 }
 
@@ -87,7 +89,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 60px; /* större mellanrum mellan bilderna */
+  gap: 70px; /* större mellanrum mellan bilderna */
 }
 
 /* BILDER */
@@ -100,8 +102,7 @@ html, body {
   transition: transform 0.3s;
   object-fit: cover;
 
-  /* Halvt synliga toppar */
-  margin-top: -20px; /* ännu mindre, så bilderna börjar när hero-texten slutar */
+  margin-top: 0; /* ingen margin-top längre → inga linjer/skarpa övergångar */
 }
 
 .photo:hover {
