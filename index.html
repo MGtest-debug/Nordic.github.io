@@ -2,86 +2,278 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Nordic</title>
-  <!-- Run-inspirerad font från Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordic Minecraft Server</title>
+  <!-- Run-inspirerad font -->
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== GLOBAL ===== */
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+      color: white;
+    }
+
+    a { text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      width: 100%;
+      background: #2a2a2a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      color: #69c9d0;
+      font-size: 28px;
+      font-weight: bold;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .logo:hover { transform: scale(1.1); color: #ffffff; }
+
+    .nav-menu a {
+      color: white;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+    }
+    .nav-menu a:hover {
+      color: #69c9d0;
+      transform: scale(1.1);
+      text-shadow: 0 0 8px #69c9d0;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      background: url('minecraft-hero.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .title-box {
+      background: rgba(217,217,217,0.9);
+      padding: 30px 50px;
+      clip-path: polygon(12% 0%, 88% 0%, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0% 88%, 0% 12%);
+      text-align: center;
+    }
+    .title-box h1 {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 56px;
+      margin: 0;
+      color: #1a4381;
+      text-shadow: 0px 2px 8px rgba(0,0,0,0.45);
+    }
+    .title-box h2 {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 32px;
+      margin-top: 10px;
+      color: #1a4381;
+      text-shadow: 0px 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .intro-text {
+      background: rgba(0,0,0,0.6);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 20px;
+    }
+
+    /* ===== SOCIAL BUTTONS ===== */
+    .button-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .social-button {
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
+    }
+    .social-button.discord { background-color: #5865F2; }
+    .social-button.youtube { background-color: #FF0000; }
+    .social-button.tiktok  { background-color: #69C9D0; }
+    .social-button:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+      box-shadow: 0 0 15px #69c9d0, 0 0 20px #69c9d0;
+    }
+
+    /* ===== GALLERI / SHOP ===== */
+    .gallery-section {
+      padding: 40px 20px;
+      text-align: center;
+      background: #505051;
+    }
+    .gallery-section h2 {
+      color: #69c9d0;
+      margin-bottom: 25px;
+    }
+    .fridge {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .photo {
+      width: 260px;
+      height: 200px;
+      background: white;
+      padding: 8px;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .photo p {
+      margin: 5px 0 0;
+      color: black;
+      font-weight: bold;
+    }
+    .photo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      z-index: 10;
+    }
+
+    /* ===== POPUP MODAL ===== */
+    .popup-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center; align-items: center;
+    }
+    .popup-content {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px; width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+      animation: popupAppear 0.3s ease-out;
+      position: relative;
+    }
+    .popup-content img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .popup-content h2 { color: #69c9d0; margin: 10px 0 5px; }
+    .popup-content p { color: white; font-size: 16px; }
+    .close-popup {
+      position: absolute; top: 10px; right: 15px;
+      color: white; font-size: 28px; font-weight: bold; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-popup:hover { color: #69c9d0; }
+    @keyframes popupAppear { from {transform: scale(0.7); opacity:0;} to {transform: scale(1); opacity:1;} }
+
+    /* ===== SERVER STATUS ===== */
+    .server-status {
+      background: #2a2a2a;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .server-status h3 { color: #69c9d0; margin-bottom: 10px; }
+    .server-status p { color: white; margin: 5px 0; }
+
+    /* ===== RESPONSIV ===== */
+    @media (max-width: 768px) {
+      .photo { width: 45%; height: auto; }
+      .title-box h1 { font-size: 42px; }
+      .title-box h2 { font-size: 24px; }
+      .intro-text { font-size: 18px; }
+    }
+    @media (max-width: 480px) {
+      .photo { width: 90%; height: auto; }
+      .nav-menu a { margin-left: 10px; font-size: 14px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-container">
-      <a href="index.html" class="logo">Nordic</a>
+      <a href="#" class="logo">Nordic</a>
       <nav class="nav-menu">
-        <a href="index.html">Hem</a>
-        <a href="shop.html">Shop</a>
-        <a href="lore.html">Lore</a>
-        <a href="minecraft.html">Minecraft</a>
-        <a href="faq.html">FAQ</a>
+        <a href="#">Hem</a>
+        <a href="#shop">Shop</a>
+        <a href="#lore">Lore</a>
+        <a href="#gallery">Galleri</a>
+        <a href="#contact">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="center-wrapper">
-      <!-- Rubrik i ruta -->
-      <div class="title-box">
-        <h1>
-          Välkommen till Nordic<br>
-          Community Site!
-        </h1>
-      </div>
-
-      <!-- Text under rutan -->
-      <p class="intro-text">
-        Spela, ha kul & skapa minnen.
-      </p>
-
-      <!-- Sociala knappar -->
-      <div class="button-group">
-        <a href="https://discord.gg/xkfRXrT8cm" target="_blank" class="social-button discord">Discord</a>
-        <a href="https://youtube.com" target="_blank" class="social-button youtube">YouTube</a>
-        <a href="https://www.tiktok.com" target="_blank" class="social-button tiktok">TikTok</a>
-      </div>
+  <section class="hero">
+    <div class="title-box">
+      <h1>Välkommen till Nordic</h1>
+      <h2>Minecraft Community & Server</h2>
+    </div>
+    <p class="intro-text">Spela, skapa och ha kul med vårt community!</p>
+    <div class="button-group">
+      <a href="#" class="social-button discord">Discord</a>
+      <a href="#" class="social-button youtube">YouTube</a>
+      <a href="#" class="social-button tiktok">TikTok</a>
     </div>
   </section>
 
-  <!-- GALLERI -->
-  <section class="gallery-section" id="gallery">
-    <h2 style="color:white; margin-bottom:30px;">Galleri</h2>
+  <!-- SERVER STATUS -->
+  <section class="server-status" id="server-status">
+    <h3>Serverstatus</h3>
+    <p id="status-text">Laddar status...</p>
+    <p id="players-text"></p>
+    <button onclick="window.location.href='minecraft://your.server.ip';">Join Server</button>
+  </section>
+
+  <!-- GALLERI / SHOP -->
+  <section class="gallery-section" id="shop">
+    <h2>Våra produkter & bilder</h2>
     <div class="fridge">
-      <div class="photo" data-title="Bild 1" data-desc="Detta är beskrivningen för bild 1.">
-        <img src="img1.jpg" alt="Bild 1"><p>Bild 1</p>
-      </div>
-      <div class="photo" data-title="Bild 2" data-desc="Detta är beskrivningen för bild 2.">
-        <img src="img2.jpg" alt="Bild 2"><p>Bild 2</p>
-      </div>
-      <div class="photo" data-title="Bild 3" data-desc="Detta är beskrivningen för bild 3.">
-        <img src="img3.jpg" alt="Bild 3"><p>Bild 3</p>
-      </div>
-      <div class="photo" data-title="Bild 4" data-desc="Detta är beskrivningen för bild 4.">
-        <img src="img4.jpg" alt="Bild 4"><p>Bild 4</p>
-      </div>
-      <div class="photo" data-title="Bild 5" data-desc="Detta är beskrivningen för bild 5.">
-        <img src="img5.jpg" alt="Bild 5"><p>Bild 5</p>
-      </div>
-      <div class="photo" data-title="Bild 6" data-desc="Detta är beskrivningen för bild 6.">
-        <img src="img6.jpg" alt="Bild 6"><p>Bild 6</p>
-      </div>
-      <div class="photo" data-title="Bild 7" data-desc="Detta är beskrivningen för bild 7.">
-        <img src="img7.jpg" alt="Bild 7"><p>Bild 7</p>
-      </div>
-      <div class="photo" data-title="Bild 8" data-desc="Detta är beskrivningen för bild 8.">
-        <img src="img8.jpg" alt="Bild 8"><p>Bild 8</p>
-      </div>
-      <div class="photo" data-title="Bild 9" data-desc="Detta är beskrivningen för bild 9.">
-        <img src="img9.jpg" alt="Bild 9"><p>Bild 9</p>
-      </div>
-      <div class="photo" data-title="Bild 10" data-desc="Detta är beskrivningen för bild 10.">
-        <img src="img10.jpg" alt="Bild 10"><p>Bild 10</p>
-      </div>
+      <div class="photo" data-title="Produkt 1" data-desc="Beskrivning av produkt 1"><img src="product1.jpg" alt="Produkt 1"><p>Produkt 1</p></div>
+      <div class="photo" data-title="Produkt 2" data-desc="Beskrivning av produkt 2"><img src="product2.jpg" alt="Produkt 2"><p>Produkt 2</p></div>
+      <div class="photo" data-title="Produkt 3" data-desc="Beskrivning av produkt 3"><img src="product3.jpg" alt="Produkt 3"><p>Produkt 3</p></div>
+      <div class="photo" data-title="Produkt 4" data-desc="Beskrivning av produkt 4"><img src="product4.jpg" alt="Produkt 4"><p>Produkt 4</p></div>
     </div>
   </section>
 
@@ -95,23 +287,21 @@
     </div>
   </div>
 
-  <!-- KONTAKT -->
-  <section id="contact">
+  <!-- CONTACT -->
+  <section class="gallery-section" id="contact">
     <h2>Kontakt</h2>
     <p>Du kan kontakta oss via sociala medier eller e-post.</p>
   </section>
 
-  <!-- JS FÖR POPUP -->
+  <!-- JS -->
   <script>
+    // POPUP
     const modal = document.getElementById("popupModal");
     const popupImg = document.getElementById("popupImg");
     const popupTitle = document.getElementById("popupTitle");
     const popupDesc = document.getElementById("popupDesc");
     const closeBtn = document.getElementsByClassName("close-popup")[0];
-
-    const photos = document.querySelectorAll(".photo");
-
-    photos.forEach(photo => {
+    document.querySelectorAll(".photo").forEach(photo => {
       photo.addEventListener("click", () => {
         popupImg.src = photo.querySelector("img").src;
         popupTitle.textContent = photo.dataset.title;
@@ -119,9 +309,17 @@
         modal.style.display = "flex";
       });
     });
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
 
-    closeBtn.onclick = () => { modal.style.display = "none"; }
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+    // SERVER STATUS (exempel med dummy-data)
+    const statusText = document.getElementById("status-text");
+    const playersText = document.getElementById("players-text");
+    // Här kan du koppla till en riktig Minecraft-server API
+    setTimeout(() => {
+      statusText.textContent = "Online";
+      playersText.textContent = "12/100 spelare online";
+    }, 1000);
   </script>
 
 </body>
