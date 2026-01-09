@@ -1,11 +1,3 @@
-/* ===== NORSE RUN‑INSPIRED FONT ===== */
-@font-face {
-  font-family: "NorseRun";
-  src: url("Norse.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* ===== GLOBAL ===== */
 html, body {
   margin: 0;
@@ -82,11 +74,12 @@ html, body {
     0% 88%, 0% 12%
   );
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .title-box h1 {
-  font-family: "NorseRun", serif; /* run-inspirerad font */
-  margin: 0;
+  font-family: 'MedievalSharp', cursive;
+  margin: 0 0 15px 0;
   font-size: 58px;
   color: #1a4381;
   letter-spacing: 2px;
@@ -98,7 +91,7 @@ html, body {
   background: rgba(0,0,0,0.6);
   padding: 12px 20px;
   border-radius: 8px;
-  margin-top: 15px;
+  margin: 0 auto;
   font-size: 20px;
   color: #ffffff;
   display: inline-block;
