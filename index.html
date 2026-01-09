@@ -45,24 +45,83 @@
   <section class="gallery-section" id="gallery">
     <h2 style="color:white; margin-bottom:30px;">Galleri</h2>
     <div class="fridge">
-      <div class="photo"><img src="img1.jpg" alt="Bild 1"><p>Bild 1</p></div>
-      <div class="photo"><img src="img2.jpg" alt="Bild 2"><p>Bild 2</p></div>
-      <div class="photo"><img src="img3.jpg" alt="Bild 3"><p>Bild 3</p></div>
-      <div class="photo"><img src="img4.jpg" alt="Bild 4"><p>Bild 4</p></div>
-      <div class="photo"><img src="img5.jpg" alt="Bild 5"><p>Bild 5</p></div>
-      <div class="photo"><img src="img6.jpg" alt="Bild 6"><p>Bild 6</p></div>
-      <div class="photo"><img src="img7.jpg" alt="Bild 7"><p>Bild 7</p></div>
-      <div class="photo"><img src="img8.jpg" alt="Bild 8"><p>Bild 8</p></div>
-      <div class="photo"><img src="img9.jpg" alt="Bild 9"><p>Bild 9</p></div>
-      <div class="photo"><img src="img10.jpg" alt="Bild 10"><p>Bild 10</p></div>
+      <div class="photo" data-title="Bild 1" data-desc="Detta är beskrivningen för bild 1.">
+        <img src="img1.jpg" alt="Bild 1"><p>Bild 1</p>
+      </div>
+      <div class="photo" data-title="Bild 2" data-desc="Detta är beskrivningen för bild 2.">
+        <img src="img2.jpg" alt="Bild 2"><p>Bild 2</p>
+      </div>
+      <div class="photo" data-title="Bild 3" data-desc="Detta är beskrivningen för bild 3.">
+        <img src="img3.jpg" alt="Bild 3"><p>Bild 3</p>
+      </div>
+      <div class="photo" data-title="Bild 4" data-desc="Detta är beskrivningen för bild 4.">
+        <img src="img4.jpg" alt="Bild 4"><p>Bild 4</p>
+      </div>
+      <div class="photo" data-title="Bild 5" data-desc="Detta är beskrivningen för bild 5.">
+        <img src="img5.jpg" alt="Bild 5"><p>Bild 5</p>
+      </div>
+      <div class="photo" data-title="Bild 6" data-desc="Detta är beskrivningen för bild 6.">
+        <img src="img6.jpg" alt="Bild 6"><p>Bild 6</p>
+      </div>
+      <div class="photo" data-title="Bild 7" data-desc="Detta är beskrivningen för bild 7.">
+        <img src="img7.jpg" alt="Bild 7"><p>Bild 7</p>
+      </div>
+      <div class="photo" data-title="Bild 8" data-desc="Detta är beskrivningen för bild 8.">
+        <img src="img8.jpg" alt="Bild 8"><p>Bild 8</p>
+      </div>
+      <div class="photo" data-title="Bild 9" data-desc="Detta är beskrivningen för bild 9.">
+        <img src="img9.jpg" alt="Bild 9"><p>Bild 9</p>
+      </div>
+      <div class="photo" data-title="Bild 10" data-desc="Detta är beskrivningen för bild 10.">
+        <img src="img10.jpg" alt="Bild 10"><p>Bild 10</p>
+      </div>
     </div>
   </section>
+
+  <!-- MODAL / POPUP -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <div id="modalText">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
 
   <!-- KONTAKT -->
   <section id="contact" style="padding: 50px; text-align: center; color:white; background:#2a2a2a;">
     <h2>Kontakt</h2>
     <p>Du kan kontakta oss via sociala medier eller e-post.</p>
   </section>
+
+  <!-- JS FÖR MODAL -->
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    const photos = document.querySelectorAll(".photo");
+    photos.forEach(photo => {
+      photo.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = photo.querySelector("img").src;
+        modalTitle.textContent = photo.dataset.title;
+        modalDesc.textContent = photo.dataset.desc;
+      });
+    });
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
