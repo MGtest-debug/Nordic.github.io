@@ -43,12 +43,13 @@ html, body {
   margin-left: 20px;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
 }
 
 .nav-menu a:hover {
   color: #69c9d0;
   transform: scale(1.1);
+  text-shadow: 0 0 8px #69c9d0;
 }
 
 /* ===== HERO ===== */
@@ -105,7 +106,7 @@ html, body {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  transition: transform 0.2s, filter 0.2s;
+  transition: transform 0.2s, filter 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
@@ -116,6 +117,7 @@ html, body {
 .social-button:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
+  box-shadow: 0 0 15px #69c9d0, 0 0 20px #69c9d0;
 }
 
 /* ===== GALLERI ===== */
@@ -162,14 +164,13 @@ html, body {
   font-weight: bold;
 }
 
-/* Hover-effekt */
 .photo:hover {
   transform: scale(1.15) rotate(0deg);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 0 20px #69c9d0, 0 0 40px rgba(105,201,208,0.5);
   z-index: 10;
+  cursor: pointer;
 }
 
-/* Rotation för olika bilder */
 .photo:nth-child(odd) { transform: rotate(-4deg); }
 .photo:nth-child(even){ transform: rotate(3deg); }
 .photo:nth-child(3n)  { transform: rotate(-5deg); }
