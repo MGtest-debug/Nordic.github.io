@@ -52,7 +52,6 @@ html, body {
   transition: transform 0.25s, color 0.25s, text-shadow 0.25s;
 }
 
-/* glow + pop */
 .nav-menu a:hover {
   color: #69c9d0;
   transform: scale(1.2);
@@ -61,7 +60,6 @@ html, body {
     0 0 18px #69c9d0;
 }
 
-/* underline animation */
 .nav-menu a::after {
   content: "";
   position: absolute;
@@ -81,14 +79,13 @@ html, body {
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh;
-  padding-top: 90px; /* headern */
+  padding-top: 90px;
   background: url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
   color: white;
 }
 
-/* gradient över hero */
 .hero::after {
   content: "";
   position: absolute;
@@ -186,7 +183,6 @@ html, body {
   overflow: visible;
 }
 
-/* gradient ovanför galleriet */
 .gallery-section::before {
   content: "";
   position: absolute;
@@ -210,7 +206,6 @@ html, body {
   gap: 70px;
 }
 
-/* FOTO-BOX */
 .photo {
   width: 260px;
   height: 200px;
@@ -221,6 +216,7 @@ html, body {
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1;
@@ -234,14 +230,12 @@ html, body {
   border-radius: 4px;
 }
 
-/* POP-EFFEKT VID HOVER */
 .photo:hover {
   transform: scale(1.15) rotate(0deg);
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   z-index: 10;
 }
 
-/* ROTATION AUTOMATISK */
 .photo:nth-child(odd) { transform: rotate(-4deg); }
 .photo:nth-child(even){ transform: rotate(3deg); }
 .photo:nth-child(3n)  { transform: rotate(-5deg); }
