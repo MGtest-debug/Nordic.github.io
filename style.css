@@ -203,13 +203,13 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 70px;
+  gap: 30px;
 }
 
 .photo {
   width: 260px;
   height: 200px;
-  background: white;
+  background: #2a2a2a; /* mörk bakgrund istället för vit */
   padding: 8px;
   border-radius: 6px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.45);
@@ -228,6 +228,12 @@ html, body {
   object-fit: cover;
   display: block;
   border-radius: 4px;
+}
+
+.photo p {
+  color: white;
+  margin-top: 5px;
+  font-weight: bold;
 }
 
 .photo:hover {
