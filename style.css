@@ -86,10 +86,12 @@ html, body {
 
 .intro-text {
   background: rgba(0,0,0,0.6);
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 8px;
   display: inline-block;
-  margin-bottom: 20px;
+  margin: 15px 0 30px;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 /* ===== SOCIALA KNAPPAR ===== */
@@ -125,6 +127,11 @@ html, body {
   padding: 30px 20px 80px;
   text-align: center;
   background: #505051;
+}
+
+.gallery-section h2 {
+  color: white;
+  margin-bottom: 30px;
 }
 
 .fridge {
