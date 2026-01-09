@@ -102,7 +102,7 @@ a { text-decoration: none; }
   padding:40px 20px;
   background: linear-gradient(to bottom, rgba(80,80,81,0.95), rgba(80,80,81,0));
 }
-.gallery-section h2 { color:#69c9d0; margin-bottom:25px; }
+.gallery-section h2 { color:#69c9d0; margin-bottom:25px; text-align:center; }
 .fridge {
   max-width:1400px;
   margin:auto;
@@ -140,30 +140,22 @@ a { text-decoration: none; }
 .close-popup:hover { color:#69c9d0; }
 @keyframes popupAppear { from {transform: scale(0.7); opacity:0;} to {transform: scale(1); opacity:1;} }
 
-/* ===== SOCIAL FOOTER ===== */
-.social-footer {
-  background: rgba(42,42,42,0.95);
-  padding:15px;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  position:fixed;
-  bottom:0;
-  width:100%;
-  z-index:999;
-}
-.social-footer a {
-  padding:10px 20px;
-  border-radius:6px;
+/* ===== SOCIAL SECTION LÄNGST NER ===== */
+#social { text-align:center; margin-top:30px; }
+#social div a {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration:none;
   color:white;
   font-weight:bold;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  margin:5px;
+  display:inline-block;
   transition:0.2s;
 }
-.social-footer .discord { background:#5865F2; }
-.social-footer .youtube { background:#FF0000; }
-.social-footer .tiktok { background:#69C9D0; }
-.social-footer a:hover { transform:scale(1.1); filter:brightness(1.2); box-shadow:0 0 15px #69c9d0,0 0 20px #69c9d0; }
+#social div a.discord { background:#5865F2; }
+#social div a.youtube { background:#FF0000; }
+#social div a.tiktok { background:#69C9D0; }
+#social div a:hover { transform:scale(1.1); filter:brightness(1.2); box-shadow:0 0 15px #69c9d0,0 0 20px #69c9d0; }
 
 /* ===== RESPONSIV ===== */
 @media(max-width:768px){.photo{width:45%;height:auto;}.title-box h1{font-size:42px;}.title-box h2{font-size:24px;}.intro-text{font-size:18px;}}
@@ -178,9 +170,8 @@ a { text-decoration: none; }
     <a href="#hero" class="logo">Nordic</a>
     <nav class="nav-menu">
       <a href="#hero">Hem</a>
-      <a href="#shop">Shop</a>
-      <a href="#lore">Lore</a>
       <a href="#gallery">Galleri</a>
+      <a href="#lore">Lore</a>
       <a href="#contact">Kontakt</a>
     </nav>
   </div>
@@ -236,12 +227,15 @@ a { text-decoration: none; }
   <p>Du kan kontakta oss via sociala medier eller e-post.</p>
 </section>
 
-<!-- SOCIAL FOOTER -->
-<div class="social-footer">
-  <a href="https://discord.gg/xkfRXrT8cm" target="_blank" class="discord">Discord</a>
-  <a href="https://youtube.com" target="_blank" class="youtube">YouTube</a>
-  <a href="https://www.tiktok.com" target="_blank" class="tiktok">TikTok</a>
-</div>
+<!-- SOCIAL LINKS LÄNGST NER -->
+<section class="gallery-section" id="social">
+  <h2>Följ oss</h2>
+  <div>
+    <a href="https://discord.gg/xkfRXrT8cm" target="_blank" class="discord">Discord</a>
+    <a href="https://youtube.com" target="_blank" class="youtube">YouTube</a>
+    <a href="https://www.tiktok.com" target="_blank" class="tiktok">TikTok</a>
+  </div>
+</section>
 
 <script>
   // POPUP
