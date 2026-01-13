@@ -2,76 +2,133 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>Nordic Minecraft</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordic Minecraft Server</title>
 
 <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body,html{
+  font-family:Arial;
+  background:#1e1e1e;
+  color:white;
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+.site-header{
+  width:100%;
+  background:#2a2a2a;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.header-container{
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+}
+.logo{color:#69c9d0;font-size:28px;font-weight:bold;text-decoration:none}
+.nav-menu a{color:white;margin-left:20px;text-decoration:none;font-weight:bold}
+.nav-menu a:hover{color:#69c9d0}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  background:#111;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:20px;
+}
+.title-box{
+  background:#ddd;
+  padding:30px 60px;
+  clip-path: polygon(12% 0%,88% 0%,100% 12%,100% 88%,88% 100%,12% 100%,0% 88%,0% 12%);
+}
+.title-box h1{
+  font-family:'MedievalSharp';
+  font-size:60px;
+  color:#1a4381;
+}
+.intro-text{
+  background:black;
+  padding:12px 20px;
+  border-radius:8px;
+}
+
+/* SECTIONS */
+.gallery-section{
+  padding:60px 20px;
+  text-align:center;
+  background:#505051;
+}
+
+/* BUTTONS */
+button{
+  background:#69c9d0;
+  border:none;
+  padding:10px 20px;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+}
+button:hover{filter:brightness(1.2)}
+</style>
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="header-container">
     <a href="#" class="logo">Nordic</a>
     <nav class="nav-menu">
-      <a href="#">Hem</a>
-      <a href="#gallery">Galleri</a>
-      <a href="#contact">Kontakt</a>
+      <a href="#hero">Hem</a>
       <a href="#admin-login">Admin</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="title-box">
     <h1>Nordic SMP</h1>
-    <h2>Minecraft Community</h2>
   </div>
-  <p class="intro-text">Joina vår svenska Minecraft-server</p>
+  <p class="intro-text">Svensk Minecraft Community</p>
 </section>
 
-<section class="server-status">
-  <h3>Serverstatus</h3>
-  <p id="status-text">Online</p>
-  <p>IP: nordicsmp.ggwp.cc</p>
-</section>
-
-<section class="gallery-section" id="gallery">
-<h2>Galleri</h2>
-<div class="fridge">
-<div class="photo"><img src="img1.jpg"></div>
-<div class="photo"><img src="img2.jpg"></div>
-<div class="photo"><img src="img3.jpg"></div>
-</div>
-</section>
-
+<!-- ADMIN LOGIN -->
 <section class="gallery-section" id="admin-login">
-<h2>Admin Login</h2>
-<input type="password" id="adminPass" placeholder="Lösenord">
-<br><br>
-<button onclick="checkAdmin()">Logga in</button>
-<p id="adminError"></p>
+  <h2>Admin Login</h2>
+  <input type="password" id="adminPass" placeholder="Lösenord" style="padding:10px;border-radius:6px;border:none;">
+  <br><br>
+  <button onclick="checkAdmin()">Logga in</button>
+  <p id="adminError" style="color:red;margin-top:10px;"></p>
 </section>
 
+<!-- ADMIN PANEL -->
 <section class="gallery-section" id="admin-panel" style="display:none;">
-<h2>Admin Panel</h2>
-<button onclick="alert('Server startad')">Starta server</button>
-<button onclick="alert('Server stoppad')">Stoppa server</button>
-<button onclick="alert('Broadcast skickat')">Skicka meddelande</button>
-</section>
+  <h2>Admin Panel</h2>
+  <p>Inloggad ✔</p>
 
-<section id="contact">
-<h2>Kontakt</h2>
-<p>Discord & YouTube</p>
+  <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+    <button onclick="alert('Server startad!')">Starta Server</button>
+    <button onclick="alert('Server stoppad!')">Stoppa Server</button>
+    <button onclick="alert('Meddelande skickat!')">Broadcast</button>
+  </div>
 </section>
 
 <script>
 function checkAdmin(){
-  const pass = document.getElementById("adminPass").value;
-  if(pass === "1234"){
-    document.getElementById("admin-panel").style.display="block";
+  const pass=document.getElementById("adminPass").value;
+  if(pass==="1234"){
     document.getElementById("admin-login").style.display="none";
+    document.getElementById("admin-panel").style.display="block";
   } else {
     document.getElementById("adminError").innerText="Fel lösenord!";
   }
